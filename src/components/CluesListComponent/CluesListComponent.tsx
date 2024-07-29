@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from './CluesListComponent.module.css';
+// import styles from './CluesListComponent.module.css';
 import { clues } from '../../Helpers/Templates/Clues';
 import { Clue } from '../../Helpers/Models/Clue';
 
