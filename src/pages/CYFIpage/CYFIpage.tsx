@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from './CYFIpage.module.css';
+// import styles from './CYFIpage.module.css';
 import CYFIHomeComponent from '../../components/CYFIHomeComponent/CYFIHomeComponent';
 
 interface CYFIpageProps {}

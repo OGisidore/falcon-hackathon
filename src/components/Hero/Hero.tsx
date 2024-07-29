@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, } from 'react';
 import { Game } from '../../Helpers/Models/Game';
 import { Games } from '../../Helpers/Templates/Games';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 interface HeroProps {}
 
 const Hero: FC<HeroProps> = () => {
-  const [currentGame, setCurrentGame]=useState<Game|null>();
+  // const [currentGame, setCurrentGame]=useState<Game|null>();
 
  return <div className='container min-h-[100vh] md:w-[90vw] max-w-[600px] flex flex-col items-center bg-[#3c5f6f] md:h-[90vh]' >
     <h1> CHOOSE A GAME </h1>

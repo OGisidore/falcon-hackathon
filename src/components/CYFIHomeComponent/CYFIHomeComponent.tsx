@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from './CYFIHomeComponent.module.css';
+// import styles from './CYFIHomeComponent.module.css';
 import LevelConponent from '../LevelConponent/LevelConponent';
 import CluesListComponent from '../CluesListComponent/CluesListComponent';
 

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from './LandingPage.module.css';
+// import styles from './LandingPage.module.css';
 import Hero from '../../components/Hero/Hero';
 
 interface LandingPageProps {}
