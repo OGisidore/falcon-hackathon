@@ -13,7 +13,7 @@ const Hero: FC<HeroProps> = () => {
     <div className="games">
       {
         Games.map((game : Game)=>{
-           return <Link to={"/" + game.slug} className="game cursor-pointer w-fit                  h-[10rem] bg-white box-shadow mt-[1rem]">
+           return <Link to={"/: " + game.slug} className="game cursor-pointer w-fit h-[10rem] bg-white box-shadow mt-[1rem]">
         <img src={game.img_url} className='w-[100%] h-[100%]  ' alt="can you find it" />
       </Link>
         })
