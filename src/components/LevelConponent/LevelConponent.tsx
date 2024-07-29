@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from './LevelConponent.module.css';
+// import styles from './LevelConponent.module.css';
 
 interface LevelConponentProps {}
 
