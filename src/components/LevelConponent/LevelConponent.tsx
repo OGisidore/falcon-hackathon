@@ -4,14 +4,14 @@ import React, { FC } from 'react';
 interface LevelConponentProps {}
 
 const LevelConponent: FC<LevelConponentProps> = () => (
-  <div className=' w-[95%] flex items-center justify-between'>
-    <div className="level text-[2rem]">
-      Level : Beginer
+  <div className=' w-[95%] md:w-[400px] md:self-end flex  justify-between'>
+    <div className="level font-sans text-[1.5rem]">
+      LEVEL : Beginer
     </div>
-    <div className="checked flex w-[10rem] ">
-      <img src="assets/images/yellow checkmark.svg" className='w-[33%]' alt="checked-yellow" />
-      <img src="assets/images/gray checkmark.svg" className='w-[33%]' alt="checked-yellow" />
-      <img src="assets/images/gray checkmark.svg" className='w-[33%]' alt="checked-yellow" />
+    <div className="checked flex  w-[7rem     ]  ">
+      <img src="assets/images/yellow checkmark.svg" className='w-[2rem]' alt="checked-yellow" />
+      <img src="assets/images/gray checkmark.svg" className='w-[2rem]' alt="checked-yellow" />
+      <img src="assets/images/gray checkmark.svg" className='w-[2rem]' alt="checked-yellow" />
     </div>
   </div>
 );
