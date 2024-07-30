@@ -20,7 +20,7 @@ const CluesListComponent: FC<CluesListComponentProps> = () => {
   },)
   
 
-  return <div className='w-[90%] grid mt-[5rem] md:flex md:flex-col md:items-center  grid-cols-3 grid-rows-3 gap-1 p-1 md:bg-[#156082] sm:bg-white [&>*:nth-child(odd)]:bg-blue-500 [&>*:nth-child(even)]:bg-[#47a73a]'>
+  return <div className='w-[90%] grid mt-[5rem] md:flex md:flex-col md:items-center  grid-cols-3 grid-rows-3 gap-1 p-1 md:bg-[#156082] bg-white [&>*:nth-child(odd)]:bg-blue-500 [&>*:nth-child(even)]:bg-[#47a73a]'>
     {
      cluesToShow.length > 4?
       cluesToShow.map((clue:Clue)=>{
