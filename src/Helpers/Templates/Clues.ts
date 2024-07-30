@@ -5,7 +5,7 @@ export const clues : Clue[] = [
     {
         _id : generateID(),
         completed : false,
-        type : "color wheel",
+        type : "color",
         created_at : new Date(),
         img_url : 'assets/images/color wheel.svg'
     },
@@ -54,7 +54,7 @@ export const clues : Clue[] = [
     {
         _id : generateID(),
         completed : false,
-        type : "color wheel",
+        type : "color ",
         created_at : new Date(),
         img_url : 'assets/images/color wheel.svg'
     },
