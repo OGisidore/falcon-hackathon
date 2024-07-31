@@ -4,6 +4,9 @@ import Webcam from 'react-webcam';
 import { ADD_TO_CATEGORY } from '../../Redux/actions/ActionType';
 
 interface WebcamComponentProps {}
+const videoConstraints = {
+  facingMode: "user"
+};
 
 const WebcamComponent: FC<WebcamComponentProps> = () => {
   const webcamref = useRef<any>('')
@@ -33,7 +36,7 @@ const addCaptureimge = ()=>{
    <div className='w-[90%]  mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082] '>
     {
       imgSrc.length ?<> <img src={imgSrc} alt="capture-objet" /><div className="capture_btn p-[1rem] w-[20rem] bg-[#e97813] border border-solid border-black rounded-sm" onClick={()=>addCaptureimge()} > Submit   </div>
- </>  :<> <Webcam height={"1200px"} className=' m-0 border border-solid border-black w-[400px]'ref={webcamref}/> <div className="capture_btn p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div></>
+ </>  :<> <Webcam videoConstraints={videoConstraints} height={"1200px"} className=' m-0 border border-solid border-black w-[400px]'ref={webcamref}/> <div className="capture_btn p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div></>
     }
     
     
