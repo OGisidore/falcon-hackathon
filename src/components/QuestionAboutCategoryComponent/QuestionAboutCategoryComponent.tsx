@@ -107,12 +107,15 @@ const stopRecording = () => {
               </div>
               <div className="camera w-[5rem] h-[5rem] bg-white rounded-full flex justify-center items-center">
                 {
-                  !recording ? <img
+                  !recording && <img
               className="w-[3rem]"
               onClick={() => startRecording}
               src="assets/images/microphone-black-shape.svg"
               alt="microphone-photo"
-            />:<img
+            /> 
+                }
+                {
+                  recording && <img
             className="w-[3rem]"
             onClick={() => stopRecording}
             src="assets/images/apple.svg"
