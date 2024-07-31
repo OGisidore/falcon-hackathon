@@ -8,7 +8,7 @@ interface WebcamComponentProps {}
 
 const WebcamComponent: FC<WebcamComponentProps> = () => {
   const videoConstraints = {
-    width: 360,
+    width: 60,
   height: 720,
     facingMode: { exact: "environment" }
   };
@@ -39,7 +39,7 @@ const addCaptureimge = ()=>{
    <div className='w-[90%]  mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082] '>
     {
       imgSrc.length ?<> <img src={imgSrc} alt="capture-objet" /><div className="capture_btn p-[1rem] w-[20rem] bg-[#e97813] border border-solid border-black rounded-sm" onClick={()=>addCaptureimge()} > Submit   </div>
- </>  :<> <Webcam videoConstraints={videoConstraints} className=' m-0 border border-solid border-black w-[400px]'ref={webcamref}/> <div className="capture_btn p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div></>
+ </>  :<> <Webcam videoConstraints={videoConstraints}  audio={false} width={60} height={720} screenshotFormat="image/jpeg" className=' m-0 border border-solid border-black w-[400px]'ref={webcamref}/> <div className="capture_btn p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div></>
     }
     
     
