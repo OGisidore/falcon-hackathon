@@ -109,7 +109,7 @@ const stopRecording = () => {
                 {
                   !recording && <img
               className="w-[3rem]"
-              onClick={() => startRecording}
+              onClick={() => startRecording()}
               src="assets/images/microphone-black-shape.svg"
               alt="microphone-photo"
             /> 
@@ -117,7 +117,7 @@ const stopRecording = () => {
                 {
                   recording && <img
             className="w-[3rem]"
-            onClick={() => stopRecording}
+            onClick={() => stopRecording()}
             src="assets/images/apple.svg"
             alt="microphone-photo"
           />
