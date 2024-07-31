@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment, useRef, useState } from "react";
 // import styles from "./QuestionAboutCategoryComponent.module.css";
 import WebcamComponent from "../WebcamComponent/WebcamComponent";
 import { useSelector } from "react-redux";
@@ -11,6 +11,61 @@ const QuestionAboutCategoryComponent: FC<
 > = () => {
   const [Oncamera, setOnCamera] = useState<boolean>(false);
   const imageShot = useSelector(getImageShot);
+const mediaRecorder = useRef<any>(null);
+const [recording , setRecording]=useState<boolean>(false)
+// 
+
+
+const mediaStream = useRef<any>(null);
+const [recordedUrl, setRecordedUrl] = useState<string>('');
+
+const chunks = useRef<any>([]);
+const startRecording = async () => {
+  setRecording(true)
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(
+      { audio: true }
+    );
+    mediaStream.current = stream;
+    mediaRecorder.current = new MediaRecorder(stream);
+    mediaRecorder.current.ondataavailable = (e:any) => {
+      if (e.data.size > 0) {
+        chunks.current.push(e.data);
+      }
+    };
+    mediaRecorder.current.onstop = () => {
+      const recordedBlob = new Blob(
+        chunks.current, { type: 'audio/webm' }
+      );
+      const url = URL.createObjectURL(recordedBlob);
+      setRecordedUrl(url);
+      chunks.current = [];
+    };
+    mediaRecorder.current.start();
+  } catch (error) {
+    console.error('Error accessing microphone:', error);
+  }
+};
+const stopRecording = () => {
+  setRecording(true)
+
+  if (mediaRecorder.current && mediaRecorder.current.state === 'recording') {
+    mediaRecorder.current.stop();
+  }
+  if (mediaStream.current) {
+    mediaStream.current.getTracks().forEach((track:any) => {
+      track.stop();
+    });
+  }
+};
+
+
+
+
+// 
+   
+              
+ 
 
   return (
     <Fragment>
@@ -49,12 +104,20 @@ const QuestionAboutCategoryComponent: FC<
                 </p>{" "}
               </div>
               <div className="camera w-[5rem] h-[5rem] bg-white rounded-full flex justify-center items-center">
-            <img
+                {
+                  !recording ? <img
               className="w-[3rem]"
-              onClick={() => setOnCamera(true)}
+              onClick={() => startRecording}
               src="assets/images/microphone-black-shape.svg"
               alt="microphone-photo"
-            />
+            />:<img
+            className="w-[3rem]"
+            onClick={() => stopRecording}
+            src="assets/images/apple.svg"
+            alt="microphone-photo"
+          />
+                }
+            
           </div></>
           }
         
