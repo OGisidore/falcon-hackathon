@@ -20,6 +20,8 @@ const mediaStream = useRef<any>(null);
 const [recordedUrl, setRecordedUrl] = useState<string>('');
 
 const chunks = useRef<any>([]);
+
+
 const startRecording = async () => {
   setRecording(true)
   try {
@@ -46,6 +48,8 @@ const startRecording = async () => {
     console.error('Error accessing microphone:', error);
   }
 };
+
+// 
 const stopRecording = () => {
   setRecording(true)
 
