@@ -4,11 +4,12 @@ import Webcam from 'react-webcam';
 import { ADD_TO_CATEGORY } from '../../Redux/actions/ActionType';
 
 interface WebcamComponentProps {}
-const videoConstraints = {
-  facingMode: "user"
-};
+
 
 const WebcamComponent: FC<WebcamComponentProps> = () => {
+  const videoConstraints = {
+    facingMode: { exact: "environment" }
+  };
   const webcamref = useRef<any>('')
   const [imgSrc, setImgSrc]= useState<string>("")
   const dispatch = useDispatch()
