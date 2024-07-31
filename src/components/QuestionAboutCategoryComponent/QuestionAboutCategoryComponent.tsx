@@ -56,6 +56,8 @@ const stopRecording = () => {
     mediaStream.current.getTracks().forEach((track:any) => {
       track.stop();
     });
+    console.log(recordedUrl);
+    
   }
 };
 
