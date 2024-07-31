@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import styles from './imageSubmitComponent.module.css';
 
 interface imageSubmitComponentProps {}
 
