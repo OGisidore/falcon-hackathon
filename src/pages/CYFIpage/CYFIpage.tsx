@@ -4,10 +4,10 @@ import CYFIHomeComponent from '../../components/CYFIHomeComponent/CYFIHomeCompon
 
 interface CYFIpageProps {}
 
-const CYFIpage: FC<CYFIpageProps> = () => (
-  <div className='w-full  flex flex-col gradient items-center h-[100vh]'>
+const CYFIpage: FC<CYFIpageProps> = () => {
+  return <div className='w-full  flex flex-col gradient items-center h-[100vh]'>
     <CYFIHomeComponent/>
   </div>
-);
+};
 
 export default CYFIpage;
