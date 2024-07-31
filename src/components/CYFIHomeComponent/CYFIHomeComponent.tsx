@@ -2,7 +2,7 @@ import React, { FC } from "react";
 // import styles from './CYFIHomeComponent.module.css';
 import LevelConponent from "../LevelConponent/LevelConponent";
 import CluesListComponent from "../CluesListComponent/CluesListComponent";
-import { getCategory, getImageShot } from "../../Redux/Selector/Selectors";
+import { getCategory } from "../../Redux/Selector/Selectors";
 import { useSelector } from "react-redux";
 import QuestionAboutCategoryComponent from "../QuestionAboutCategoryComponent/QuestionAboutCategoryComponent";
 
