@@ -4,12 +4,15 @@ import { clues } from '../../Helpers/Templates/Clues';
 import { Clue } from '../../Helpers/Models/Clue';
 import { useDispatch } from 'react-redux';
 import { ADD_TO_CATEGORY } from '../../Redux/actions/ActionType';
+import {  useNavigate } from 'react-router-dom';
 
 interface CluesListComponentProps {}
 
 const CluesListComponent: FC<CluesListComponentProps> = () => {
   const [screenWidth, setScreenWidth]= useState(window.screen.width)
   const dispatch = useDispatch()
+  const navigate = useNavigate();
+
 
   const handleAddCategory = (category : Clue)=>{
     dispatch({
@@ -18,6 +21,7 @@ const CluesListComponent: FC<CluesListComponentProps> = () => {
       unique : true,
       payload : category
     })
+    navigate("/step1")
 
   }
   let cluesToShow = screenWidth < 768 ? clues : clues.slice(0,4);
