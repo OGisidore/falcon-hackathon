@@ -18,19 +18,12 @@ const WebcamComponent: FC<WebcamComponentProps> = () => {
     width: 340,
   height: 340,
     // facingMode: { exact: "environment" }
-    facingMode : {exact : "user"}
+    facingMode : isMobileDevice()?{ exact: "environment" } : { exact: "user" }
   };
-  const handleTypeOf_camera=()=>{
-    if (isMobileDevice()) {
-    videoConstraints = {...videoConstraints , facingMode: { exact: "environment" }}
- } else {
-   videoConstraints =  {...videoConstraints , facingMode: { exact: "environment" }}
- }
-  }
   
-  useEffect(()=>{
-    handleTypeOf_camera()
-  })
+  
+  
+  
   const webcamref = useRef<any>('')
   const dispatch = useDispatch()
   
