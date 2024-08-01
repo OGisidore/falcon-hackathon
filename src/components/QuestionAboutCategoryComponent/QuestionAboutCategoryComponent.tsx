@@ -1,8 +1,7 @@
-import React, { FC, Fragment, useRef, useState } from "react";
+import React, { FC, Fragment, useState } from "react";
 // import styles from "./QuestionAboutCategoryComponent.module.css";
 import WebcamComponent from "../WebcamComponent/WebcamComponent";
-import { useSelector } from "react-redux";
-import { getImageShot } from "../../Redux/Selector/Selectors";
+
 
 interface QuestionAboutCategoryComponentProps {}
 
@@ -10,7 +9,7 @@ const QuestionAboutCategoryComponent: FC<
   QuestionAboutCategoryComponentProps
 > = () => {
   const [Oncamera, setOnCamera] = useState<boolean>(false);
-  const imageShot = useSelector(getImageShot);
+  // const imageShot = useSelector(getImageShot);
 
 
 

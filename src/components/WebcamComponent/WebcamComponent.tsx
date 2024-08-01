@@ -34,24 +34,25 @@ const WebcamComponent: FC<WebcamComponentProps> = () => {
   const webcamref = useRef<any>('')
   const [imgSrc, setImgSrc]= useState<string>("")
   const dispatch = useDispatch()
-  const addCaptureimge = (imageSrc : string)=>{
-    dispatch({
-      type : ADD_TO_CATEGORY,
-      key :'image',
-      unique : true,
-      payload :imgSrc
-    })
-    navigate("/step2")
   
-  }
-
+  const addCaptureimge = useCallback(() => {
+    dispatch({
+      type: ADD_TO_CATEGORY,
+      key: 'image',
+      unique: true,
+      payload: imgSrc,
+    });
+    navigate("/step2");
+  }, [dispatch, imgSrc, navigate]);
+  
   const capture = useCallback(()=>{
     const imageSrc = webcamref.current!.getScreenshot()
     console.log(imageSrc);
-    addCaptureimge(imageSrc)
+   
+    addCaptureimge()
     setImgSrc(imageSrc)
     
-  }, [webcamref])
+  }, [webcamref,addCaptureimge])
 
 
   
