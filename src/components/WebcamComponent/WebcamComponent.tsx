@@ -10,7 +10,7 @@ interface WebcamComponentProps {}
 const WebcamComponent: FC<WebcamComponentProps> = () => {
   const navigate = useNavigate()
   const isMobileDevice =()=> {
-    return /Mobi|Android/i.test(navigator.userAgent);
+    return /Mobi|Android|iPhone|iPad|Opera Mini|webOS/i.test(navigator.userAgent);
   }
   
   
