@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRefsame } from 'react';
 import { useDispatch } from 'react-redux';
 import Webcam from 'react-webcam';
 import { ADD_TO_CATEGORY } from '../../Redux/actions/ActionType';
