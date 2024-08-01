@@ -1,35 +1,59 @@
-import React, { FC, useCallback, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Webcam from 'react-webcam';
 import { ADD_TO_CATEGORY } from '../../Redux/actions/ActionType';
+import { useNavigate } from 'react-router-dom';
 
 interface WebcamComponentProps {}
 
 
 const WebcamComponent: FC<WebcamComponentProps> = () => {
-  const videoConstraints = {
+  const navigate = useNavigate()
+  const isMobileDevice =()=> {
+    return /Mobi|Android/i.test(navigator.userAgent);
+  }
+  
+  
+  let videoConstraints = {
     width: 340,
   height: 340,
-    facingMode: { exact: "environment" }
+    // facingMode: { exact: "environment" }
+    facingMode : {exact : "user"}
   };
+  const handleTypeOf_camera=()=>{
+    if (isMobileDevice()) {
+    videoConstraints = {...videoConstraints , facingMode: { exact: "environment" }}
+ } else {
+   videoConstraints =  {...videoConstraints , facingMode: { exact: "environment" }}
+ }
+  }
+  
+  useEffect(()=>{
+    handleTypeOf_camera()
+  })
   const webcamref = useRef<any>('')
   const [imgSrc, setImgSrc]= useState<string>("")
   const dispatch = useDispatch()
+  const addCaptureimge = (imageSrc : string)=>{
+    dispatch({
+      type : ADD_TO_CATEGORY,
+      key :'image',
+      unique : true,
+      payload :imgSrc
+    })
+    navigate("/step2")
+  
+  }
 
   const capture = useCallback(()=>{
     const imageSrc = webcamref.current!.getScreenshot()
+    console.log(imageSrc);
+    addCaptureimge(imageSrc)
     setImgSrc(imageSrc)
+    
   }, [webcamref])
 
-const addCaptureimge = ()=>{
-  dispatch({
-    type : ADD_TO_CATEGORY,
-    key :'image',
-    unique : true,
-    payload :imgSrc
-  })
 
-}
   
 
 
@@ -37,12 +61,10 @@ const addCaptureimge = ()=>{
 
   return(
    <div className='w-[90%] mt-[2rem] md:mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082] '>
-    {
-      imgSrc.length ?<>
-       <img src={imgSrc} alt="capture-objet" />
-           <div className="capture_btn p-[1rem] mt-[2rem] w-[5rem] bg-[#e97813] border border-solid border-black text-[1.5rem] font-bold rounded-sm" onClick={()=>addCaptureimge()} > Submit   </div>
- </>  :<> <Webcam videoConstraints={videoConstraints}  audio={false} width={340} height={340} screenshotFormat="image/jpeg" ref={webcamref}/> <div className="capture_btn mt-[1rem] p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div></>
-    }
+           {/* <div className="capture_btn p-[1rem] mt-[2rem] w-[5rem] bg-[#e97813] border border-solid border-black text-[1.5rem] font-bold rounded-sm" onClick={()=>addCaptureimge()} > Submit   </div> */}
+  <Webcam videoConstraints={videoConstraints}  audio={false} width={340} height={340} screenshotFormat="image/jpeg" ref={webcamref}/>
+   <div className="capture_btn mt-[1rem] p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div>
+    
     
     
   </div>)
