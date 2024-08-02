@@ -16,11 +16,11 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
 
 
   }
-  return <div className='w-[90%]  mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082]  '>
+  return <div className='w-[90%]   flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082]  '>
   <div className="preview_image">
     <img src={imgSrc} className='max-w-[100%]' alt="preview" />
   </div>
-  <div onClick={handleCompareImage} className="submit_button text-white font-bold p-[2rem] w-[8rem] text-center text-[1.3rem] bg-[#e97813]">Submit </div>
+  <div onClick={handleCompareImage} className="submit_button border-[.2rem] border-solid border-black  rounded-[.5rem] text-white font-bold p-[1rem] w-[8rem] flex items-center justify-center text-center text-[1.3rem] bg-[#e97813]">Submit </div>
 </div>
 };
 

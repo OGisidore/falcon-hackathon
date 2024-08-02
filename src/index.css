@@ -9,12 +9,14 @@
   fill: #665e5e;
 }
 
-/* a {
+a {
   text-decoration: none;
-  color: #fff;
-} */
+  /* color: #fff; */
+}
 body {
   margin: 0;
+  font-family: sans-serif
+  ;
   color: #fff;
 }
 .box-shadow {

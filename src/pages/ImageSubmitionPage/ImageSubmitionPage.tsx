@@ -8,6 +8,8 @@ const ImageSubmitionPage: FC<ImageSubmitionPageProps> = () =>  {
   return <div className='w-full  flex flex-col gradient items-center h-[100vh]'>
      <div className="container min-h-[100vh] w-[100%] md:max-w-[1200px] pt-8  flex flex-col items-center bg-[#156082] md:h-[90vh]">
       <LevelConponent />
+      <h2 className='text-[2.5rem] font-bold '>CAN YOU FIND IT?</h2>
+
       <ImageSubmitComponent/>
       {/* <div className='w-[90%]  mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082]  '>
     <div className="preview_image">

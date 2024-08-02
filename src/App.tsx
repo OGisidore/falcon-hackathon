@@ -7,6 +7,7 @@ import CYFIpage from './pages/CYFIpage/CYFIpage';
 import ChatQuestionPage from './pages/ChatQuestionPage/ChatQuestionPage';
 import ImageSubmitionPage from './pages/ImageSubmitionPage/ImageSubmitionPage';
 import CelebrationPage from './pages/CelebrationPage/CelebrationPage';
+import CategoryCompletedPage from './pages/CategoryCompletedPage/CategoryCompletedPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -33,6 +34,11 @@ function App() {
     {
       path :"/step3",
       element : <CelebrationPage/>,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path :"/final",
+      element : <CategoryCompletedPage/>,
       errorElement: <ErrorPage />,
     }
   ]);

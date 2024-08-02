@@ -51,7 +51,7 @@ const WebcamComponent: FC<WebcamComponentProps> = () => {
 
 
   return(
-   <div className='w-[90%] mt-[2rem] md:mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082] '>
+   <div className='w-[90%] mt-[2rem]  flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082] '>
            {/* <div className="capture_btn p-[1rem] mt-[2rem] w-[5rem] bg-[#e97813] border border-solid border-black text-[1.5rem] font-bold rounded-sm" onClick={()=>addCaptureimge()} > Submit   </div> */}
   <Webcam videoConstraints={videoConstraints}  audio={false} width={340} height={340} screenshotFormat="image/jpeg" ref={webcamref}/>
    <div className="capture_btn mt-[1rem] p-[3rem] cursor-pointer bg-white rounded-full" onClick={()=>capture()}>   </div>
