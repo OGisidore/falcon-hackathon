@@ -127,44 +127,47 @@ const chunks = useRef<any>([]);
   
 
 // 
-const stopRecording = () => {
-  setRecording(false)
+        const stopRecording = () => {
+          setRecording(false)
 
-  if (mediaRecorder.current && mediaRecorder.current.state === 'recording') {
-    mediaRecorder.current.stop();
-  }
-  if (mediaStream.current) {
-    mediaStream.current.getTracks().forEach((track:any) => {
-      track.stop();
-    });
-    console.log(recordedUrl);
-    
-  }
+          if (mediaRecorder.current && mediaRecorder.current.state === 'recording') {
+            mediaRecorder.current.stop();
+          }
+          if (mediaStream.current) {
+            mediaStream.current.getTracks().forEach((track:any) => {
+              track.stop();
+            });
+            console.log(recordedUrl);
+            
+          }
+              
+            
+          fetch(recordedUrl)
+          .then(response => response.blob())
+          .then(blob => {
+            const formData = new FormData();
+            formData.append('audio', blob, 'recording.mp3'); // Nommer le fichier comme souhaité
       
-    
-    //Envoyer l'image au backend via fetch
-    fetch('http://localhost:5000/api/step2', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ audio: recordedUrl }),
-    })
-    .then(response => response.json())
-    .then(output => {
-      console.log('Response from backend:', output);
-      navigate('/final')
-    })
-    .catch(error => {
-      console.error('Error submitting image:', error);
-    });
-    // navigate("/step3");
+            // Envoyer le fichier au backend via fetch
+            return fetch('http://localhost:5000/api/step2', {
+              method: 'POST',
+              body: formData,
+            });
+          })
+          .then(response => response.json())
+          .then(output => {
+            console.log('Response from backend:', output);
+            navigate('/final');
+          })
+          .catch(error => {
+            console.error('Error submitting audio:', error);
+          });
 
-  
-  
-  navigate('/final')
+          
+          
+          navigate('/final')
 
-};
+        };
 
   
   return  <div className="w-[90%]  mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082]  ">
