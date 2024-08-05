@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment, useEffect, useState } from "react";
 // import styles from "./QuestionAboutCategoryComponent.module.css";
 import WebcamComponent from "../WebcamComponent/WebcamComponent";
 
@@ -10,7 +10,53 @@ const QuestionAboutCategoryComponent: FC<
 > = () => {
   const [Oncamera, setOnCamera] = useState<boolean>(false);
   // const imageShot = useSelector(getImageShot);
+  const [color, setColor]=useState<string>("")
+  const colors = [
+    // Rouges
+    'Red', 'Scarlet', 'Crimson', 'Burgundy',
+  
+    // Oranges
+    'Orange', 'Coral', 'Peach', 'Tangerine',
+  
+    // Jaunes
+    'Yellow', 'Gold', 'Lemon', 'Mustard',
+  
+    // Verts
+    'Green', 'Forest Green', 'Mint', 'Olive',
+  
+    // Bleus
+    'Blue', 'Sky Blue', 'Turquoise', 'Navy',
+  
+    // Violets
+    'Purple', 'Lavender', 'Mauve', 'Plum',
+  
+    // Roses
+    'Pink', 'Fuchsia', 'Magenta', 'Candy Pink',
+  
+    // Marrons
+    'Brown', 'Sepia', 'Cinnamon', 'Chocolate',
+  
+    // Noirs et Gris
+    'Black', 'Gray', 'Charcoal', 'Slate',
+  
+    // Blancs et Crèmes
+    'White', 'Ivory', 'Cream', 'Off-White',
+  
+    // Couleurs Neutres
+    'Beige', 'Taupe', 'Greige', 'Sand',
+  
+    // Couleurs Métalliques
+    'Silver', 'Gold', 'Copper', 'Bronze'
+  ];
+  const getRandomColorName=()=> {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    setColor(colors[randomIndex])
+  }  
+  useEffect(()=>{
+    getRandomColorName()
 
+
+  },[])
 
 
 
@@ -24,9 +70,9 @@ const QuestionAboutCategoryComponent: FC<
     <Fragment>
       
         <div className="w-[90%]  mt-[5rem] flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082]  ">
-          {!Oncamera ?<>  <div className="question">
+          {!Oncamera ?<>  <div className="question text-[2rem]  font-bold">
             
-              "FIND SOMETHING ORANGE"
+              FIND SOMETHING  <span className={"font-bold text-["+ color.toLowerCase()+"]"}>{color.toLocaleUpperCase()} </span>
             
           </div>
           <div className="camera w-[5rem] h-[5rem] bg-white rounded-full flex justify-center items-center">

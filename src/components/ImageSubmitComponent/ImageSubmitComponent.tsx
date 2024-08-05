@@ -15,7 +15,7 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
     const handleCompareImage = useCallback((imageSrc: string) => {
       
     
-      // Envoyer l'image au backend via fetch
+      //Envoyer l'image au backend via fetch
       fetch('http://localhost:5000/api/step1', {
         method: 'POST',
         headers: {
@@ -31,6 +31,8 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
       .catch(error => {
         console.error('Error submitting image:', error);
       });
+      // navigate("/step3");
+
     
     }, [navigate]);
     

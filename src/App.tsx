@@ -17,7 +17,7 @@ function App() {
       errorElement: <ErrorPage />,
     },
     {
-      path :"/CYFI",
+      path :"/FnS",
       element : <CYFIpage/>,
       errorElement: <ErrorPage />,
     },
