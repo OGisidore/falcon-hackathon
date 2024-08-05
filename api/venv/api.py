@@ -20,7 +20,7 @@ api_key = os.getenv("API_KEY")
 aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
 
 
 @app.route("/api/step1", methods=['POST'])
@@ -47,8 +47,8 @@ def object_detection():
 
     if img is not None:
         # Save the captured image to a file
-        with open("captured_image.png", "wb") as f:
-            f.write(img.getbuffer())
+        # with open("captured_image.png", "wb") as f:
+        #     f.write(img.getbuffer())
 
         # Function to query the model
         def query(filename):
@@ -58,23 +58,33 @@ def object_detection():
             return response.json()
 
         # Perform the object detection query
-        output = query("captured_image.png")
+        output = query(img  )
         return output
     
-@app.route("/api/step2")
+@app.route("/api/step2",  methods=['POST'])
 def speech_recognitione():
 
     # Replace with your API key
     # aai.settings.api_key = "71abafd79449452cae0bc43adab9eadf"
 
     # URL of the file to transcribe
-    FILE_URL = ""
+    # FILE_URL = ""
+    if 'audio' not in request.files:
+        return jsonify({'error': 'Aucun fichier audio fourni'}), 400
+    
+    # Obtenir le fichier audio depuis la requête
+    audio_file = request.files['audio']
+    
+    # Sauvegarder le fichier audio temporairement
+    with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as temp_file:
+        audio_file.save(temp_file.name)
+        audio_file_path = temp_file.name
 
     # You can also transcribe a local file by passing in a file path
     # FILE_URL = './path/to/file.mp3'
 
     transcriber = aai.Transcriber()
-    transcript = transcriber.transcribe(FILE_URL)
+    transcript = transcriber.transcribe(audio_file_path         )
 
     if transcript.status == aai.TranscriptStatus.error:
         output = transcript.error

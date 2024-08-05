@@ -41,7 +41,7 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
   <div className="preview_image">
     <img src={imgSrc} className='max-w-[100%]' alt="preview" />
   </div>
-  <div onClick={()=>handleCompareImage(imgSrc)} className="submit_button border-[.2rem] border-solid border-black  rounded-[.5rem] text-white font-bold p-[1rem] w-[8rem] flex items-center justify-center text-center text-[1.3rem] bg-[#e97813]">Submit </div>
+  <div onClick={()=>handleCompareImage(imgSrc)} className="submit_button cursor-pointer border-[.2rem] border-solid border-black  rounded-[.5rem] text-white font-bold p-[1rem] w-[8rem] flex items-center justify-center text-center text-[1.3rem] bg-[#e97813]">Submit </div>
 </div>
 };
 
