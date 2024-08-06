@@ -25,7 +25,7 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Response from backend:', data);
+        console.log('Response from backend:', data);               
         navigate("/step3");
       })
       .catch(error => {

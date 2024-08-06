@@ -1,6 +1,12 @@
 @tailwindd base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Archivo Black';
+  src: url('../public/assets/fonts/Archivo_Black/ArchivoBlack-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --primary_color: #156082;
