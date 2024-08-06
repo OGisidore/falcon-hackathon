@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         satoshi: ['Satoshi', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        archivo: ['Archivo Black', 'sans-serif'],
       },
       borderWidth: {
         '3': '3px', // Ajoute une classe de bordure personnalisée avec une largeur de 3 pixels

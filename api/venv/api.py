@@ -87,9 +87,9 @@ def speech_recognitione():
     transcript = transcriber.transcribe(audio_file_path         )
 
     if transcript.status == aai.TranscriptStatus.error:
-        output = transcript.error
+        output = jsonify({'error': transcript.error})
     else:
-        output = transcript.text
+        output = jsonify({'transcript': transcript.text})
 
     return output
 
