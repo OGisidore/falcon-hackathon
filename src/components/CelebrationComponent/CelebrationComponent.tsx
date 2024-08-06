@@ -362,7 +362,7 @@
                 {recording && <canvas ref={canvasRef} width="300" height="150" />}
               </div>
         
-              <div className="microphone w-[5rem] h-[5rem] bg-white rounded-full flex justify-center items-center">
+              <div className="microphone w-[5rem] h-[5rem] bg-white rounded-full border border-solid border-black flex justify-center items-center">
                 {!recording && (
                   <img
                     className="w-[3rem]"
