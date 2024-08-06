@@ -11,7 +11,10 @@ const QuestionAboutCategoryComponent: FC<
   const [Oncamera, setOnCamera] = useState<boolean>(false);
   // const imageShot = useSelector(getImageShot);
   const [color, setColor]=useState<string>("")
-  const colors = [
+ 
+  useEffect(()=>{
+    const getRandomColorName=()=> {
+       const colors = [
     // Rouges
     'Red', 'Scarlet', 'Crimson', 'Burgundy',
   
@@ -48,17 +51,15 @@ const QuestionAboutCategoryComponent: FC<
     // Couleurs Métalliques
     'Silver', 'Gold', 'Copper', 'Bronze'
   ];
-  const getRandomColorName=()=> {
+   
     const randomIndex = Math.floor(Math.random() * colors.length);
     setColor(colors[randomIndex])
-  }  
-  useEffect(()=>{
+  } 
     getRandomColorName()
 
 
   },[])
-
-
+ 
 
 
 // 
