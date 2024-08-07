@@ -1,2 +1,2 @@
-FLASK_APP=venv/api.py
+FLASK_APP=api.py
 FLASK_DEBUG=1

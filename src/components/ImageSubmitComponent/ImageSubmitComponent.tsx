@@ -1,22 +1,24 @@
 import React, { FC, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getImageShot } from '../../Redux/Selector/Selectors';
 import { useNavigate } from 'react-router-dom';
+import { ADD_TO_CATEGORY } from '../../Redux/actions/ActionType';
 
 interface ImageSubmitComponentProps {}
 
 const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
   const imgSrc = useSelector(getImageShot)
   console.log(imgSrc);
+  const apiUrl = process.env.REACT_APP_API_URL;
   
   const navigate = useNavigate()
-
+const dispatch = useDispatch()
  
     const handleCompareImage = useCallback((imageSrc: string) => {
       
     
       //Envoyer l'image au backend via fetch
-      fetch('http://localhost:5000/api/step1', {
+      fetch("http://localhost:5000/api/step1", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,7 +27,14 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Response from backend:', data);               
+        console.log('Response from backend:', data); 
+        dispatch({
+          type: ADD_TO_CATEGORY,
+          key: 'color',
+          unique: true,
+          payload: data.results[0],                   
+        })
+
         navigate("/step3");
       })
       .catch(error => {
@@ -34,7 +43,7 @@ const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
       // navigate("/step3");
 
     
-    }, [navigate]);
+    }, [navigate, dispatch]);
     
    
   return <div className='w-[90%]   flex flex-col items-center justify-evenly  min-h-[50vh]  p-1 bg-[#156082]  '>

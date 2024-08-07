@@ -1,6 +1,8 @@
 import React, { FC, Fragment, useEffect, useState } from "react";
 // import styles from "./QuestionAboutCategoryComponent.module.css";
 import WebcamComponent from "../WebcamComponent/WebcamComponent";
+import { useDispatch } from "react-redux";
+import { ADD_TO_CATEGORY } from "../../Redux/actions/ActionType";
 
 
 interface QuestionAboutCategoryComponentProps {}
@@ -11,6 +13,7 @@ const QuestionAboutCategoryComponent: FC<
   const [Oncamera, setOnCamera] = useState<boolean>(false);
   // const imageShot = useSelector(getImageShot);
   const [color, setColor]=useState<string>("")
+  const dispatch = useDispatch()
  
   useEffect(()=>{
     const getRandomColorName=()=> {
@@ -56,9 +59,16 @@ const QuestionAboutCategoryComponent: FC<
     setColor(colors[randomIndex])
   } 
     getRandomColorName()
+    dispatch({
+      type: ADD_TO_CATEGORY,
+      key: 'questionColor',
+      unique: true,
+      payload: color,
+    
+    })
 
 
-  },[])
+  },[color, dispatch])
  
 
 
