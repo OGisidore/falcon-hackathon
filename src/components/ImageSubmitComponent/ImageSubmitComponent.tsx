@@ -32,7 +32,7 @@ const dispatch = useDispatch()
           type: ADD_TO_CATEGORY,
           key: 'color',
           unique: true,
-          payload: data.results[0],                   
+          payload: data.objects[0],                   
         })
 
         navigate("/step3");
