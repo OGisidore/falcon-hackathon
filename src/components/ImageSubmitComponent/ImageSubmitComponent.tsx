@@ -9,7 +9,7 @@ interface ImageSubmitComponentProps {}
 const ImageSubmitComponent: FC<ImageSubmitComponentProps> = () => {
   const imgSrc = useSelector(getImageShot)
   console.log(imgSrc);
-  // const apiUrl = process.env.REACT_APP_API_URL;
+  // const api Url = process.env.REACT_APP_API_URL;
   
   const navigate = useNavigate()
 const dispatch = useDispatch()
